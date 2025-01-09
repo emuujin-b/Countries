@@ -40,13 +40,15 @@ public class Main
     // Write a for loop that goes through the countryArray.
     // for(int i ....) {
     // Do the following inside the loop
+    for (int i=0; i<countryArray.length;i++){
       String input = scan.nextLine();
       String[] data = input.split(",");
       System.out.println("Read in " + data[0]);
+      Country a = new Country(data[0],data[1],data[2],data[3]);
+      countryArray[i]=a;
+    }
       // inside the loop, create a new Country using your constructor with 3 arguments and pass in data[0], data[1], data[2], data[3] as arguments.
      // inside the loop, set countryArray[i] to the created Country object
-     
-    
   }
 
   /* showCountry() will show the image associated with the current country. It should get the country at index from the countryArray. It should use its get method to get its image file name and use the code below to put the image in the GUI.
@@ -64,6 +66,12 @@ public class Main
   /* nextButton should increment index. If the index is greater than 9, reset it back to 0. Clear the outputLabel to empty string using setText, and call showCountry();*/
   public void nextButtonClick()
   {
+    if(index>9){
+      index=0;
+      outputLabel.setText("");
+      showCountry(); 
+    }
+    else{index++;} 
     
   }
   
